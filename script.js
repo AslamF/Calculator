@@ -41,3 +41,21 @@ let operate = function(operator, a, b){
         }
 };
 console.log(operate("", 25, 5));
+
+
+const buttons = document.querySelectorAll("button");
+const content = document.querySelector(".screen");
+const theParent = document.querySelector(".buttons")
+
+var text = "0";
+
+theParent.addEventListener("click", addNumber, false);
+
+function addNumber(e){
+    if (e.target !== e.currentTarget) {
+        let clickedButton = e.target.id;
+        let text = content.append(clickedButton);
+        console.log(text)
+    }
+}
+
