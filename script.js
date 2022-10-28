@@ -45,17 +45,42 @@ console.log(operate("", 25, 5));
 
 const buttons = document.querySelectorAll("button");
 const content = document.querySelector(".screen");
-const theParent = document.querySelector(".buttons")
 
-var text = "0";
+var displayValue = "";
 
+
+
+buttons.forEach(button=>{
+    button.addEventListener("click", calculate);
+})
+
+
+function calculate(){
+      let buttonValue = this.innerText;
+      displayValue += buttonValue
+      content.innerHTML ="";
+      content.append(displayValue);
+      console.log(displayValue)
+}
+
+
+
+/*
 theParent.addEventListener("click", addNumber, false);
 
 function addNumber(e){
     if (e.target !== e.currentTarget) {
         let clickedButton = e.target.id;
-        let text = content.append(clickedButton);
-        console.log(text)
+        content.append(clickedButton);
     }
+    e.stopPropagation();
+
+
+
+    let buttonValue = this.innerText;
+        numberButton = parseInt(buttonValue);
+        content.append(numberButton);
+        displayValue
 }
+*/
 

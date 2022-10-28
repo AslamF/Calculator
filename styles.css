@@ -41,7 +41,7 @@ body{
     grid-template-rows: 86px 86px 86px 86px 86px;
     
 }
-.button{
+button{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,15 +49,15 @@ body{
     
 }
 
-.button.zero{
+.zero{
     grid-column: span 2;
     background-color: aqua;
 }
 
-.button.equal{
+.equal{
     grid-row: span 2;
 }
-.button.equal{
+button.equal{
     grid-row:  ;
     grid-column: auto;
     background-color: blueviolet;
