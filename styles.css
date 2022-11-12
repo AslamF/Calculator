@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'EthnocentricRg-Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('EthnocentricRg-Regular'), url('ethnocentric rg.woff') format('woff');
+}
+
+button, .screen{
+    font-family: 'EthnocentricRg-Regular';
+}
 body{
     padding: 0;
     margin: 0;
@@ -9,10 +19,11 @@ body{
 
 }
 .calculatorFrame{
-    background-color: grey;
+    background-color: #576D62;
     width: 350px;
     height: 600px;
     padding: 25px;
+    border-radius: 20px;
     
     
 }
@@ -31,7 +42,8 @@ body{
 }
 
 .screen{
-    background-color: lightcoral;
+    background-color: #dad7cd;
+    border-radius: 10px;
     }
 
 .buttons{
@@ -45,23 +57,37 @@ button{
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    
+    border-radius: 10px;
+    transition-duration: 0.4s;
+    background-color: #dad7cd;
+    color: #344E41;
+    border: none;
+    margin: 3px;
+    cursor:pointer;
+}
+button:hover{
+    background-color: #344E41;
+    color: #DAD7CD;
+}
+button:active{
+    background-color: #7e9971;
+    box-shadow: 0 5px #666;
+    transform: translateY(1px);
+
 }
 
 .zero{
     grid-column: span 2;
-    background-color: aqua;
+    background-color: #588157
 }
 
 .equal{
     grid-row: span 2;
+    background-color: #496e4c;
 }
-button.equal{
-    grid-row:  ;
-    grid-column: auto;
-    background-color: blueviolet;
-}
+
+
+
 
 
 
