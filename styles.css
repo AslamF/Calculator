@@ -8,6 +8,7 @@
 button, .screen{
     font-family: 'EthnocentricRg-Regular';
 }
+
 body{
     padding: 0;
     margin: 0;
@@ -15,17 +16,14 @@ body{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
-
 }
+
 .calculatorFrame{
     background-color: #576D62;
     width: 350px;
     height: auto;
     padding: 25px;
-    border-radius: 20px;
-    
-    
+    border-radius: 20px;    
 }
 
 .screen{
@@ -34,8 +32,8 @@ body{
     border-radius: 10px;
     font-size: 30px;
     position: relative;
-    
 }
+
 .screenContent{
     position: absolute;
     bottom: 0;
@@ -54,9 +52,9 @@ body{
     height: 430px;
     display: grid;
     grid-template-columns: 87.5px 87.5px 87.5px 87.5px;
-    grid-template-rows: 86px 86px 86px 86px 86px;
-    
+    grid-template-rows: 86px 86px 86px 86px 86px;    
 }
+
 button{
     display: flex;
     justify-content: center;
@@ -69,15 +67,15 @@ button{
     margin: 3px;
     cursor:pointer;
 }
+
 button:hover{
     background-color: #344E41;
     color: #DAD7CD;
 }
+
 button:active{
     background-color: #7e9971;
     box-shadow: 0 5px #666;
-    
-
 }
 
 .zero{
@@ -89,10 +87,3 @@ button:active{
     grid-row: span 2;
     background-color: #7E9971;
 }
-
-
-
-
-
-
-

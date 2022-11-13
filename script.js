@@ -5,16 +5,11 @@ const equal = document.querySelector(".equal");
 const clear = document.querySelector("#clear");
 const decimal = document.querySelector(".decimal");
 const backspace = document.querySelector("#backspace");
-
-
 const screen = document.querySelector(".screenContent");
-
 
 let operator ="";
 let initialValue = "";
 let currentValue="";
-
-
 
 numbers.forEach((number) => number.addEventListener("click", (button)=>{
     handleNumber(button.target.textContent);
@@ -23,9 +18,7 @@ numbers.forEach((number) => number.addEventListener("click", (button)=>{
 
 operators.forEach((operator) =>  operator.addEventListener("click", (button)=>{
     handleOperator(button.target.textContent);
-    if (initialValue === "" && currentValue === ""){
-        screen.textContent= "ERROR";
-    }
+    
     
 }));
 
@@ -74,23 +67,13 @@ function handleOperator(op){
     if(initialValue === ""){
         initialValue = currentValue;
         operatorCheck(op);
-    }
-    else if (currentValue === ""){
+    }else if (currentValue === ""){
         operatorCheck(op);
-    }
-    else{
+    }else{
         calculate();
         operator = op;
-
     }
-    /*
-    operator = op;
-    initialValue = currentValue;
-    currentValue = "";
-    */
 }
-
-
 
 function operatorCheck(text){
     operator = text;
@@ -105,19 +88,14 @@ function calculate(){
     
 
     if (operator === "+"){
-        initialValue += currentValue;
-        
+        initialValue += currentValue;   
     }
-
     else if (operator === "-"){
-        initialValue -= currentValue;
-        
+        initialValue -= currentValue;    
     }
     else if (operator === "X"){
         initialValue *= currentValue;
-        
     }
-   
     else if(operator === "/"){
         if(currentValue === 0){
             initialValue = "ERROR";
@@ -126,17 +104,11 @@ function calculate(){
             operator ="";
             return;
         }
-        initialValue /= currentValue;
-        
+        initialValue /= currentValue;   
     }
-    
-    
-    initialValue = Math.round(initialValue * 1000) / 1000;
-
+    initialValue = Math.round(initialValue * 100000) / 100000;
     initialValue = initialValue.toString();
-    currentValue = currentValue.toString();
     displayResult();
-
 }
 
 function displayResult(){
@@ -149,19 +121,6 @@ function displayResult(){
         currentValue = "";
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function addDecimal(){
     if(!currentValue.includes(".")){
@@ -189,8 +148,7 @@ function inputfunction(e){
         if (currentValue !="" && initialValue !=""){
             calculate();
             currentValue = initialValue;
-            };
-        
+            };        
     }
 
     if (e.key === "+" || e.key == "-" || e.key === "/"){
@@ -206,8 +164,4 @@ function inputfunction(e){
         back();
         
     }
-
 }
-
-
-
