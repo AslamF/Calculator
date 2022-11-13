@@ -15,6 +15,8 @@
     These are just the elements which I found to be crucial for this project. 
 
 ## Usage
+ACTIVE LINK TO PROJECT
+https://aslamf.github.io/Calculator/
 
 ![image](https://user-images.githubusercontent.com/86327031/201507772-8d0ab966-946f-4e4b-93a7-b5b4608169e1.png)
 
