@@ -21,7 +21,7 @@ body{
 .calculatorFrame{
     background-color: #576D62;
     width: 350px;
-    height: 600px;
+    height: auto;
     padding: 25px;
     border-radius: 20px;
     
@@ -29,22 +29,26 @@ body{
 }
 
 .screen{
-    height: 150px;
+    height: 120px;
+    background-color: #dad7cd;
+    border-radius: 10px;
+    font-size: 30px;
+    position: relative;
+    
+}
+.screenContent{
+    position: absolute;
+    bottom: 0;
+    right: 0;   
+    padding: 5px;     
 }
 
 .wrapper{
     display: flex;
     flex-direction: column;
     gap: 20px;
-    
-    
-    
+       
 }
-
-.screen{
-    background-color: #dad7cd;
-    border-radius: 10px;
-    }
 
 .buttons{
     height: 430px;
@@ -72,18 +76,18 @@ button:hover{
 button:active{
     background-color: #7e9971;
     box-shadow: 0 5px #666;
-    transform: translateY(1px);
+    
 
 }
 
 .zero{
     grid-column: span 2;
-    background-color: #588157
+    background-color: #8fa480
 }
 
 .equal{
     grid-row: span 2;
-    background-color: #496e4c;
+    background-color: #7E9971;
 }
 
 

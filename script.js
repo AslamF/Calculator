@@ -1,47 +1,4 @@
-let add = function(a, b){
-    let total = parseInt(a) + parseInt(b);
-    return total;
-};
-
-
-let subtract = function(a, b){
-    let total = a - b;
-    return total;
-};
-
-
-let multiply = function(a, b){
-    let total = a * b;
-    return total;
-};
-
-
-let divide = function(a, b){
-    let total = a / b;
-    return total;
-};
-
-
-let operate = function(operator, a, b){
-    
-        if (operator === "+"){
-            return add(a, b);
-        }
-        else if (operator === "-"){
-            return subtract(a, b);
-        }
-        else if (operator === "*"){
-            return multiply(a, b);
-        } 
-        else if (operator === "/"){
-            return divide(a, b);
-        }
-        else{
-            return "need an operator!"
-        }
-};
-
-
+const buttons = document.querySelectorAll("buttons");
 const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
 const equal = document.querySelector(".equal");
@@ -50,13 +7,13 @@ const decimal = document.querySelector(".decimal");
 const backspace = document.querySelector("#backspace");
 
 
-const screen = document.querySelector(".screen");
+const screen = document.querySelector(".screenContent");
 
 
 let operator ="";
 let initialValue = "";
 let currentValue="";
-let total = "";
+
 
 
 numbers.forEach((number) => number.addEventListener("click", (button)=>{
@@ -67,14 +24,11 @@ numbers.forEach((number) => number.addEventListener("click", (button)=>{
 operators.forEach((operator) =>  operator.addEventListener("click", (button)=>{
     handleOperator(button.target.textContent);
     
-    
-    
 }));
 
 equal.addEventListener("click", function(){
     if (currentValue !="" && initialValue !=""){
     calculate();
-    currentValue = initialValue;
     };
 })
 
@@ -99,20 +53,95 @@ function clearAll(){
 
 function handleNumber(num){
 
+    if(initialValue !== "" && currentValue !== "" && operator === ""){
+        initialValue = "";
+        screen.textContent = currentValue;
+    }
    
     if(currentValue.length <= 7){
         currentValue += num;
+        screen.textContent = currentValue;
     };
-    screen.textContent = currentValue;
+    
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 function handleOperator(op){
- 
+    if(initialValue === ""){
+        initialValue = currentValue;
+        operatorCheck(op);
+    }
+    else if (currentValue === ""){
+        operatorCheck(op);
+    }
+    else{
+        calculate();
+        operator = op;
+
+    }
+
+
+
+
+    /*
     operator = op;
     initialValue = currentValue;
     currentValue = "";
-    
+    */
 }
+
+
+
+
+
+
+
+function operatorCheck(text){
+    operator = text;
+    screen.textContent= initialValue + "" + operator;
+    currentValue ="";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -123,16 +152,16 @@ function calculate(){
 
     if (operator === "+"){
         initialValue += currentValue;
-        console.log(initialValue);
+        
     }
 
     else if (operator === "-"){
         initialValue -= currentValue;
-        console.log(initialValue);
+        
     }
     else if (operator === "X"){
         initialValue *= currentValue;
-        console.log(initialValue);
+        
     }
    
     else if(operator === "/"){
@@ -144,7 +173,7 @@ function calculate(){
             return;
         }
         initialValue /= currentValue;
-        console.log(initialValue);
+        
     }
     
     
@@ -152,34 +181,50 @@ function calculate(){
 
     initialValue = initialValue.toString();
     currentValue = currentValue.toString();
-    screen.textContent = initialValue;
+    displayResult();
 
 }
 
+function displayResult(){
+    if(initialValue.length > 12){
+        screen.textContent = initialValue.slice(0, 10) + "...";
+    }
+    else{
+        screen.textContent = initialValue;
+        operator ="";
+        currentValue = "";
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function addDecimal(){
-    console.log("cicked")
     if(!currentValue.includes(".")){
         currentValue += ".";
     }
     return;
-
 }
 
 function back(){
     if (currentValue != ""){
         currentValue = currentValue.slice(0, -1);
     }
-   
     screen.textContent = currentValue;
     if(currentValue === ""){
         screen.textContent ="0"
-    }
-    
-
+    }  
 }
-
-
-
 
 function inputfunction(e){
     e.preventDefault();
@@ -205,10 +250,10 @@ function inputfunction(e){
     }
     if (e.keyCode === 8){
         back();
-        console.log("clicked")
+        
     }
-}
 
+}
 
 
 
