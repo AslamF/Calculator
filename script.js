@@ -23,6 +23,9 @@ numbers.forEach((number) => number.addEventListener("click", (button)=>{
 
 operators.forEach((operator) =>  operator.addEventListener("click", (button)=>{
     handleOperator(button.target.textContent);
+    if (initialValue === "" && currentValue === ""){
+        screen.textContent= "ERROR";
+    }
     
 }));
 
@@ -67,17 +70,6 @@ function handleNumber(num){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 function handleOperator(op){
     if(initialValue === ""){
         initialValue = currentValue;
@@ -91,10 +83,6 @@ function handleOperator(op){
         operator = op;
 
     }
-
-
-
-
     /*
     operator = op;
     initialValue = currentValue;
@@ -104,45 +92,11 @@ function handleOperator(op){
 
 
 
-
-
-
-
 function operatorCheck(text){
     operator = text;
-    screen.textContent= initialValue + "" + operator;
+    screen.textContent= initialValue ;
     currentValue ="";
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 function calculate(){
